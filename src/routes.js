@@ -4,12 +4,14 @@ import {createStackNavigator} from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
 import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons'
-
+import { faTicketAlt} from '@fortawesome/free-solid-svg-icons'
 
 import Login from './pages/login'
 import Register from './pages/register'
 
-import Home from '../src/pages/home'
+import Home from './pages/home'
+import Voucher from './pages/voucher'
+import Restaurant from './pages/restaurant'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -20,6 +22,7 @@ function Authentication(){
         initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="Restaurant" component={Restaurant} />
         </Stack.Navigator>
     )
 }
@@ -38,7 +41,7 @@ function TabNavigator(){
                             iconName = <FontAwesomeIcon  icon={faHome} />
                             break;                    
                         default:
-                            iconName = <FontAwesomeIcon icon={faSearch} />
+                            iconName = <FontAwesomeIcon icon={faTicketAlt} />
                             break;
                     }
                 
@@ -53,6 +56,7 @@ function TabNavigator(){
             
         >
             <Tab.Screen name="Home" component={Home}/>
+            <Tab.Screen name="Voucher" component={Voucher}/>
         </Tab.Navigator>
   
     )
