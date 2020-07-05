@@ -2,17 +2,24 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, Modal, TouchableOpacity, FlatList, SafeAreaView } from 'react-native'
 
 import { FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
-import { faMapMarkerAlt, faSearch, faUser, faCalendarAlt, faLongArrowAltLeft,  } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCalendarAlt, faLongArrowAltLeft,  } from '@fortawesome/free-solid-svg-icons'
 import {faClock} from '@fortawesome/free-regular-svg-icons'
 
 import Header from '../../components/header'
 
+import Reservetion from '../../components/modal/reservetion'
 
 export default function Restaurant({navigation}) {
+
+  const [openReservetion, setOpenReservetion] = useState(false)
+
  return (
   <View style={styles.main}>
-  <Header />
+
   <View style={styles.top}>
+    
+    <Header />
+
       <TouchableOpacity style={styles.btnBack}
       onPress={() => navigation.navigate('TabNavigator')}>
         <FontAwesomeIcon icon={faLongArrowAltLeft} style={styles.iconBack} size={30}/>
@@ -22,15 +29,15 @@ export default function Restaurant({navigation}) {
       
   </View>
 
+  <TouchableOpacity style={styles.btnscheduling} onPress={() => setOpenReservetion(true)}>
   <View style={styles.scheduling}>
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
       <FontAwesomeIcon icon={faUser} style={{marginLeft: 15, marginRight: 15}} />
-      </TouchableOpacity>
       <FontAwesomeIcon icon={faCalendarAlt} />
       <FontAwesomeIcon icon={faClock} style={{marginLeft: 15, marginRight: 15}} />
   </View>
+  </TouchableOpacity>
 
-  {/* <View style={styles.carda}> */}
+
       <Text style={styles.txtCarda}>Cardapio</Text>
       
         <FlatList
@@ -52,9 +59,14 @@ export default function Restaurant({navigation}) {
         )}
         />
 
-       
+       {
+         openReservetion ? <Reservetion 
+         open={openReservetion}
+         close={() => setOpenReservetion(false)}
+           /> : null 
+       }
       
-  {/* </View> */}
+
 </View>
   )
 }
@@ -71,6 +83,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#005ebb',
       // marginTop: 15,
       width: '100%',
+      height: 150,
       paddingHorizontal: 15,
       paddingVertical: 15,
       flexDirection: 'row',
@@ -91,7 +104,7 @@ const styles = StyleSheet.create({
       borderRadius: 5,
   },
   btnBack:{
-    top: 0, 
+    top: 30, 
     position: 'absolute', 
     right:10,
   },
@@ -101,8 +114,11 @@ const styles = StyleSheet.create({
     // right:10,
     color: '#fff'
   },
+  btnscheduling:{
+    width: '80%'
+  },
   scheduling:{
-      width: '80%',
+      width: '100%',
       height: 60,
       backgroundColor: '#fff',
       // position: 'absolute',
