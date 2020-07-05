@@ -9,7 +9,7 @@ import {faClock} from '@fortawesome/free-regular-svg-icons'
 import Header from '../../components/header'
 
 export default function Home({navigation}) {
-
+  
 
  return (
    <>
