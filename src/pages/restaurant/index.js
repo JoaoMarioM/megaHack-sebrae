@@ -13,7 +13,8 @@ export default function Restaurant({navigation}) {
   <View style={styles.main}>
   <Header />
   <View style={styles.top}>
-      <TouchableOpacity onPress={() => navigation.navigate('TabNavigator')}>
+      <TouchableOpacity style={styles.btnBack}
+      onPress={() => navigation.navigate('TabNavigator')}>
         <FontAwesomeIcon icon={faLongArrowAltLeft} style={styles.iconBack} size={30}/>
       </TouchableOpacity>
       <View style={styles.logo} />
@@ -89,10 +90,15 @@ const styles = StyleSheet.create({
       // marginTop: 15
       borderRadius: 5,
   },
-  iconBack:{
+  btnBack:{
     top: 0, 
     position: 'absolute', 
     right:10,
+  },
+  iconBack:{
+    // top: 0, 
+    // position: 'absolute', 
+    // right:10,
     color: '#fff'
   },
   scheduling:{
