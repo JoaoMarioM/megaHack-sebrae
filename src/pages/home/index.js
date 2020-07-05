@@ -19,6 +19,10 @@ export default function Home() {
          </View>            
       </View>
 
+      <View style={styles.scheduling}>
+        
+      </View>
+
       <View style={styles.mapContainer}>
             <MapView style={styles.map}
               initialRegion={{
