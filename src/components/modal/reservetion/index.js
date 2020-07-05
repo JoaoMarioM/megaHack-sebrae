@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Modal, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Modal, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
 
 import { FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
 import { faUser, faCalendarAlt, faLongArrowAltLeft,  } from '@fortawesome/free-solid-svg-icons'
@@ -10,14 +10,17 @@ import RNPickerSelect from 'react-native-picker-select'
 
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 
+import {TextInputMask} from 'react-native-masked-text'
+
 import Header from '../../header'
-import { Value } from 'react-native-reanimated'
 
 export default function Reservetion(props) {
     const visible = props.open
     const close = props.close
 
  return (
+     <KeyboardAvoidingView>
+
    <View style={styles.main}>
        <Modal
         animationType='slide'
@@ -68,7 +71,6 @@ export default function Reservetion(props) {
             </View>
             <View style={styles.clock}>
                 <FontAwesomeIcon icon={faClock} size={30} />
-                
             </View>
             <TouchableOpacity style={styles.btnReservetion}>
                 <Text style={styles.txtReservetion}>Reservar</Text> 
@@ -76,6 +78,9 @@ export default function Reservetion(props) {
         </View>
        </Modal>
    </View>
+
+   </KeyboardAvoidingView>
+
   )
 }
 
@@ -120,7 +125,8 @@ const styles = StyleSheet.create({
     },
     clock:{
         marginTop: 20,
-        marginBottom: 20
+        marginBottom: 20,
+        flexDirection: 'row'
     },
     selectPeaple:{
         marginLeft: 20
