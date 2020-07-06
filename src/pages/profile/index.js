@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dimensions, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTicketAlt, faUserAlt, faCalendarAlt, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +10,12 @@ import Header from '../../components/header'
 
 
 export default function Profile() {
+
+    const navigation = useNavigation()
+
+  function ToVoucher(){
+    navigation.navigate('MyVoucher')
+  }
     return (
         <View style={styles.main}>
 
@@ -32,7 +39,7 @@ export default function Profile() {
 
                 <View style={styles.profileItens}>
                     <FontAwesomeIcon icon={faTicketAlt} size={35} />
-                    <TouchableOpacity  onPress={() => {}}> 
+                    <TouchableOpacity  onPress={ToVoucher}> 
                         <Text style={styles.txtProfileItens}>Meus vouchers</Text>
                     </TouchableOpacity>
                 </View>

@@ -13,6 +13,9 @@ import Home from './pages/home'
 import Voucher from './pages/voucher'
 import Restaurant from './pages/restaurant'
 import Profile from './pages/profile'
+import MyVoucher from './pages/myVoucher'
+import MyScheduling from './pages/myScheduling'
+import Payments from './pages/payments'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -25,6 +28,9 @@ function Authentication(){
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Restaurant" component={Restaurant} />
             <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="MyVoucher" component={MyVoucher} />
+            <Stack.Screen name="MyScheduling" component={MyScheduling} />
+            <Stack.Screen name="Payments" component={Payments} />
         </Stack.Navigator>
     )
 }

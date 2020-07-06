@@ -44,6 +44,7 @@ export default function Restaurant({navigation}) {
         data={[1, 2, 3, 4, 5, 6, 7, 8]}
         style={styles.cardaItensList}
         keyExtractor={ carda => String(carda)}
+        showsVerticalScrollIndicator={false}
         renderItem={() => (
         <TouchableOpacity >
            <View style={styles.cardaItens} >
