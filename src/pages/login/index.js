@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
-import api from '../../services'
+// import api from ''
 
 
 export default function Login({ navigation }) {
