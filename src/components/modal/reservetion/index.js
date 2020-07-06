@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Modal, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
+import React, {useState} from 'react'
+import { View, Modal, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView, Alert} from 'react-native'
 
 import { FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
 import { faUser, faCalendarAlt, faLongArrowAltLeft,  } from '@fortawesome/free-solid-svg-icons'
@@ -10,14 +10,21 @@ import RNPickerSelect from 'react-native-picker-select'
 
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars'
 
-import {TextInputMask} from 'react-native-masked-text'
+
 
 import Header from '../../header'
+import { color } from 'react-native-reanimated'
 
 export default function Reservetion(props) {
     const visible = props.open
     const close = props.close
 
+    function ReservetionS(){
+        Alert.alert('Reserva realizada com sucesso!')
+        close
+    }
+
+    const [date, setDate] = useState()
  return (
      <KeyboardAvoidingView>
 
@@ -56,23 +63,33 @@ export default function Reservetion(props) {
                 {/* <FontAwesomeIcon icon={faCalendarAlt} size={30} /> */}
                 <Calendar
                     markingType={'period'}
+                    onDayPress={(day) => {{setDate(day.dateString)}}}
+                    on
+                    
+                    // onDayPress={(day) => {{console.log(day.dateString)}}}
+                    // {{console.log()}}
+
                     markedDates={{
-                    '2020-07-15': {marked: true, dotColor: '#50cebb'},
-                    '2020-07-16': {marked: true, dotColor: '#50cebb'},
-                    '2020-07-21': {startingDay: true, color: '#50cebb', textColor: 'white'},
-                    '2020-07-22': {color: '#70d7c7', textColor: 'white'},
-                    '2020-07-23': {color: '#70d7c7', textColor: 'white', marked: true, dotColor: 'white'},
+                    // day: {marked: true, dotColor: '#50cebb'},
+                    // '2020-07-16': {marked: true, dotColor: '#50cebb'},
+                    // '2020-07-21': {startingDay: true, color: '#50cebb', textColor: 'white'},
+                    // '2020-07-22': {color: '#70d7c7', textColor: 'white'},
+                    date: {color: '#70d7c7', textColor: 'white', marked: true, dotColor: 'white'},
                     '2020-07-24': {color: '#70d7c7', textColor: 'white'},
-                    '2020-07-25': {endingDay: true, color: '#50cebb', textColor: 'white'},
-                
+                    // '2020-07-25': {endingDay: true, color: '#50cebb', textColor: 'white'},
+                        
                 }}
-                onDayPress={(day) => {{console.log(day)}}}
-/>
+                    // onDayPress={(day) => 
+                    
+
+                />
+
+                {console.log(date)}
             </View>
             <View style={styles.clock}>
                 <FontAwesomeIcon icon={faClock} size={30} />
             </View>
-            <TouchableOpacity style={styles.btnReservetion}>
+            <TouchableOpacity style={styles.btnReservetion} onPress={ReservetionS}>
                 <Text style={styles.txtReservetion}>Reservar</Text> 
             </TouchableOpacity>
         </View>

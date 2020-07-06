@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Modal, Text } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Modal, Text, Image } from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
 
@@ -9,6 +9,9 @@ import {faClock} from '@fortawesome/free-regular-svg-icons'
 import {getStatusBarHeight} from 'react-native-status-bar-height'
 
 import Header from '../../header'
+
+import logo from '../../../assets/restaurant.jpg';
+
 
 export default function VoucherListRestaurant(props) {
 
@@ -37,7 +40,7 @@ export default function VoucherListRestaurant(props) {
 
         <View style={styles.restaurantList}>
             <View style={styles.restaurant}>
-                <View style={styles.logo} />
+                <Image source={logo} style={styles.logo} />
                 <View>
                     <Text style={styles.txtRestaurant}>Restaurante do Zezinho</Text>
                     <TouchableOpacity style={styles.btnRestaurant} onPress={ToRestaurant}>
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logo:{
-        width: 100,
+        width: 90,
         height: 90,
         backgroundColor: '#333',
         borderRadius: 5,

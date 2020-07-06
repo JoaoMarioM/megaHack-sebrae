@@ -31,7 +31,6 @@ export default function Home({ navigation }) {
 
         <View style={styles.mapContainer}>
           <MapView style={styles.map}
-            onPress={() => navigation.navigate('Restaurant')}
             initialRegion={{
               latitude: -23.740399,
               longitude: -46.696463,
@@ -41,6 +40,7 @@ export default function Home({ navigation }) {
           >
             <Marker 
               style={styles.mapMarker}
+              onPress={() => navigation.navigate('Restaurant')}
               coordinate={{
                 latitude: -23.740399,
                 longitude: -46.696463,
@@ -52,6 +52,7 @@ export default function Home({ navigation }) {
             </Marker>
 
             <Marker style={styles.mapMarker}
+              onPress={() => navigation.navigate('Restaurant')}
               coordinate={{
                 latitude: -23.739869,
                 longitude: -46.6974283,
@@ -111,8 +112,8 @@ const styles = StyleSheet.create({
   },
 
   mapMarkerImage: {
-    width: 30,
-    height: 30,
+    width: 70,
+    height: 70,
     resizeMode: 'cover'
   },
 
@@ -144,12 +145,11 @@ const styles = StyleSheet.create({
   },
   mapMarkerContainer: {
     width: 70,
-    height: 60,
+    height: 70,
     backgroundColor: '#D1D1D1',
-    flexDirection: 'column',
     borderRadius: 8,
-    overflow: 'hidden',
     alignItems: 'center',
+    justifyContent: 'center'
   },
 
   mapText: {

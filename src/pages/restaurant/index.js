@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Modal, TouchableOpacity, FlatList, SafeAreaView } from 'react-native'
+import { View, StyleSheet, Text, Modal, TouchableOpacity, FlatList, SafeAreaView, Image } from 'react-native'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUser, faCalendarAlt, faLongArrowAltLeft, } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +8,11 @@ import { faClock } from '@fortawesome/free-regular-svg-icons'
 import Header from '../../components/header'
 
 import Reservetion from '../../components/modal/reservetion'
+
+import logo2 from '../../assets/restaurant.jpg';
+import feijão from '../../assets/feijao.jpg';
+
+
 
 export default function Restaurant({ navigation }) {
 
@@ -24,8 +29,8 @@ export default function Restaurant({ navigation }) {
           onPress={() => navigation.navigate('TabNavigator')}>
           <FontAwesomeIcon icon={faLongArrowAltLeft} style={styles.iconBack} size={30} />
         </TouchableOpacity>
-        <View style={styles.logo} />
-        <Text style={styles.txtTop}>Restaurante do zezinho</Text>
+        <Image source={logo2} style={styles.logo} />
+        <Text style={styles.txtTop}>Buteco do Feijão</Text>
 
       </View>
 
@@ -49,11 +54,11 @@ export default function Restaurant({ navigation }) {
           <TouchableOpacity >
             <View style={styles.cardaItens} >
               <View style={styles.itenContainer}>
-                <Text style={styles.txtItenTitle}>Big Mac</Text>
-                <Text style={styles.txtItenSubTitle}>Dois hambúrgueres, alface, queijo, molho especial, cebola, picles, num pão com gergelim</Text>
+                <Text style={styles.txtItenTitle}>Feijão de corda</Text>
+                <Text style={styles.txtItenSubTitle}>Acompanha arroz, fritas, </Text>
                 <Text style={styles.txtValue}>R$ 17,00</Text>
               </ View>
-              <View style={styles.logoIten} />
+              <Image source={feijão}style={styles.logoIten} />
             </View>
           </TouchableOpacity>
 
@@ -98,8 +103,8 @@ const styles = StyleSheet.create({
     fontSize: 19
   },
   logo: {
-    width: 100,
-    height: 60,
+    width: 70,
+    height: 70,
     backgroundColor: '#333',
     // marginTop: 15
     borderRadius: 5,
