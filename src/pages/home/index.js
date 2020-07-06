@@ -28,7 +28,7 @@ export default function Home({navigation}) {
 
       <View style={styles.mapContainer}>
       <MapView style={styles.map}
-        onPress={() => navigation.navigate('Restaurant')}
+        
         initialRegion={{
           latitude: -23.7775094,
           longitude: -46.7308826,
@@ -37,6 +37,7 @@ export default function Home({navigation}) {
         }}
       >
         <Marker style={styles.mapMarker}
+          onPress={() => navigation.navigate('Restaurant')}
           coordinate={{
             latitude: -23.7775094,
             longitude: -46.7308826,
