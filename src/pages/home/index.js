@@ -1,64 +1,80 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet, TextInput, Modal, TouchableOpacity } from 'react-native';
-import MapView, {Marker} from 'react-native-maps'
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, Modal, TouchableOpacity, Image } from 'react-native';
+import MapView, { Marker } from 'react-native-maps'
 
-import { FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
-import { faMapMarkerAlt, faSearch, faUser, faCalendarAlt, faRubleSign,  } from '@fortawesome/free-solid-svg-icons'
-import {faClock} from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faMapMarkerAlt, faSearch, faUser, faCalendarAlt, faRubleSign, } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-regular-svg-icons'
+
+import logo from '../../assets/mcdonalds.jpeg';
+import logo2 from '../../assets/restaurant.jpg';
 
 import Header from '../../components/header'
 
-export default function Home({navigation}) {
-  
+export default function Home({ navigation }) {
 
- return (
-   <>
-   <View style={styles.main}>
 
-      <View style={styles.top}>
-        <Header />
-         <View style={styles.viewLocation}>
-           <FontAwesomeIcon icon={faSearch}  style={{marginLeft: 10, marginRight: 10}}  />
-           <TextInput style={styles.inputLocation} placeholder="Buscar" />
-           <FontAwesomeIcon icon={faMapMarkerAlt} style={{marginRight: 10}}/>
-         </View>            
+  return (
+    <>
+      <View style={styles.main}>
+
+        <View style={styles.top}>
+          <Header />
+          <View style={styles.viewLocation}>
+            <FontAwesomeIcon icon={faSearch} style={{ marginLeft: 10, marginRight: 10 }} />
+            <TextInput style={styles.inputLocation} placeholder="Buscar" />
+            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: 10 }} />
+          </View>
+        </View>
+
+
+
+        <View style={styles.mapContainer}>
+          <MapView style={styles.map}
+            onPress={() => navigation.navigate('Restaurant')}
+            initialRegion={{
+              latitude: -23.740399,
+              longitude: -46.696463,
+              latitudeDelta: 0.004,
+              longitudeDelta: 0.004
+            }}
+          >
+            <Marker 
+              style={styles.mapMarker}
+              coordinate={{
+                latitude: -23.740399,
+                longitude: -46.696463,
+              }}>
+              <View style={styles.mapMarkerContainer}>
+                <Image source={logo} style={styles.mapMarkerImage} />
+                <Text style={styles.mapText}>McDonalds</Text>
+              </View>
+            </Marker>
+
+            <Marker style={styles.mapMarker}
+              coordinate={{
+                latitude: -23.739869,
+                longitude: -46.6974283,
+              }}>
+              <View style={styles.mapMarkerContainer}>
+                <Image source={logo2} style={styles.mapMarkerImage} />
+                <Text style={styles.mapText}>Feijão de corda</Text>
+              </View>
+            </Marker>
+          </MapView>
+        </View>
+
       </View>
-
-      
-
-      <View style={styles.mapContainer}>
-      <MapView style={styles.map}
-        onPress={() => navigation.navigate('Restaurant')}
-        initialRegion={{
-          latitude: -23.7775094,
-          longitude: -46.7308826,
-          latitudeDelta: 0.004,
-          longitudeDelta: 0.004
-        }}
-      >
-        <Marker style={styles.mapMarker}
-          coordinate={{
-            latitude: -23.7775094,
-            longitude: -46.7308826,
-          }}>
-            <View style={styles.mapMarkerContainer}>
-                <Text>Restaurante</Text>
-            </View>
-        </Marker>
-      </MapView>
-      </View>
-
-   </View>
-   </>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  main:{
+  main: {
     flex: 1,
     alignItems: 'center'
   },
-  top:{
+  top: {
     backgroundColor: '#005ebb',
     height: 130,
     width: '100%',
@@ -67,33 +83,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  inputLocation:{
+  inputLocation: {
     color: '#333',
     width: '80%',
     height: 35
   },
-  viewLocation:{
-    backgroundColor:'#fff',
+  viewLocation: {
+    backgroundColor: '#fff',
     width: '85%',
     height: 40,
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
     flexDirection: 'row',
   },
-  mapContainer:{
+  mapContainer: {
     flex: 1,
     width: '100%',
     borderRadius: 10,
     overflow: 'hidden',
-    // marginTop: -15,
+    marginTop: 16,
+    
   },
-  map:{
+  map: {
     width: '100%',
     height: '100%',
-    alignItems: 'center'
   },
-  scheduling:{
+
+  mapMarkerImage: {
+    width: 30,
+    height: 30,
+    resizeMode: 'cover'
+  },
+
+  scheduling: {
     width: '80%',
     height: 60,
     backgroundColor: '#fff',
@@ -105,21 +128,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 999
   },
-  viewModal:{
+  viewModal: {
     flex: 1,
     // marginTop: 50,
-    position:'absolute',
+    position: 'absolute',
     backgroundColor: '#333',
-    justifyContent:'center',
-    alignItems:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     height: '100%'
   },
-  mapMarker:{
+  mapMarker: {
     width: 90,
-    height:80
+    height: 80
   },
-  mapMarkerContainer:{
-    backgroundColor: '#333'
+  mapMarkerContainer: {
+    width: 70,
+    height: 60,
+    backgroundColor: '#D1D1D1',
+    flexDirection: 'column',
+    borderRadius: 8,
+    overflow: 'hidden',
+    alignItems: 'center',
+  },
+
+  mapText: {
+    flex: 1,
+    color: '#FFF',
+    fontSize: 10,
+    lineHeight: 18,
   }
 })

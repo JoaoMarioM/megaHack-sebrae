@@ -6,7 +6,7 @@ import { faTicketAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Header from '../../components/header'
 
-import image from '../../assets/image-profile.jpg'
+//import image from '../../assets/image-profile.jpg'
 
 export default function Profile() {
     return (
@@ -16,7 +16,7 @@ export default function Profile() {
             <View style={styles.content}>
                 <View style={styles.people}>
                     <View style={styles.peoplePhoto, { width: 49, height: 49}}>
-                        <Image source={image} styles={styles.photo} />
+                        {/* <Image source={image} styles={styles.photo} /> */}
                     </View>
 
                     <Text style={styles.peopleName}>Leonardo Garruba</Text>
