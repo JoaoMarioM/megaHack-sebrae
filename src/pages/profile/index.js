@@ -7,7 +7,7 @@ import { faTicketAlt, faUserAlt, faCalendarAlt, faMoneyCheckAlt } from '@fortawe
 
 import Header from '../../components/header'
 
-
+//import image from '../../assets/image-profile.jpg'
 
 export default function Profile() {
 
@@ -25,8 +25,8 @@ export default function Profile() {
             </View>
             <View style={styles.container}>
                 <View style={styles.people}>
-                    <View style={styles.peoplePhoto}>
-                        <FontAwesomeIcon icon={faUserAlt} size={49} />
+                    <View style={styles.peoplePhoto, { width: 49, height: 49}}>
+                        {/* <Image source={image} styles={styles.photo} /> */}
                     </View>
                     <View>
                         <Text style={styles.peopleName}>Leonardo Garruba</Text>
