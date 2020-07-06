@@ -18,6 +18,7 @@ export default function Home({ navigation }) {
     <>
       <View style={styles.main}>
 
+<<<<<<< HEAD
         <View style={styles.top}>
           <Header />
           <View style={styles.viewLocation}>
@@ -50,6 +51,32 @@ export default function Home({ navigation }) {
                 <Text style={styles.mapText}>McDonalds</Text>
               </View>
             </Marker>
+=======
+      
+
+      <View style={styles.mapContainer}>
+      <MapView style={styles.map}
+        
+        initialRegion={{
+          latitude: -23.7775094,
+          longitude: -46.7308826,
+          latitudeDelta: 0.004,
+          longitudeDelta: 0.004
+        }}
+      >
+        <Marker style={styles.mapMarker}
+          onPress={() => navigation.navigate('Restaurant')}
+          coordinate={{
+            latitude: -23.7775094,
+            longitude: -46.7308826,
+          }}>
+            <View style={styles.mapMarkerContainer}>
+                <Text>Restaurante</Text>
+            </View>
+        </Marker>
+      </MapView>
+      </View>
+>>>>>>> 0b124a1173c9c7b1e6a3f23bc9eaa7b22a9c11d6
 
             <Marker style={styles.mapMarker}
               coordinate={{

@@ -66,7 +66,7 @@ export default function Reservetion(props) {
                     '2020-07-25': {endingDay: true, color: '#50cebb', textColor: 'white'},
                 
                 }}
-                // onDayPress={(day) => {markedDates}}
+                onDayPress={(day) => {{console.log(day)}}}
 />
             </View>
             <View style={styles.clock}>
